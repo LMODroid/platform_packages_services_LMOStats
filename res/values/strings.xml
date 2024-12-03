@@ -1,0 +1,26 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Anonymous Statistics #LibreMobileOS -->
+    <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
+    <string name="anonymous_statistics_title">LibreMobileOS statistics</string>
+    <string name="anonymous_statistics_summary">Help make LibreMobileOS better by opting into anonymous statistics reporting</string>
+
+    <string name="enable_reporting_title">Enable reporting</string>
+    <string name="preview_data_title">Preview data</string>
+
+    <!-- Anonymous Statistics - Preview -->
+    <string name="preview_id_title">Unique ID</string>
+    <string name="preview_device_title">Device</string>
+    <string name="preview_version_title">Version</string>
+    <string name="preview_country_title">Country</string>
+    <string name="preview_carrier_title">Carrier</string>
+    <string name="stats_collection_title">Stats collection</string>
+    <string name="stats_collection_summary">Allow installation metrics and device statistics to be collected</string>
+
+    <string name="disable">DISABLE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="disable_stats_warning_title">Disable reporting</string>
+    <string name="disable_stats_warning">Opting into LibreMobileOS Statistics will allow non-personal data to be submitted to the
+        developers of LibreMobileOS to track unique installations across devices. The information submitted includes an unique identifier,
+        which does not compromise your privacy or personal data. The data is submitted during each boot.\n\nFor an example of the data that is submitted, see in Preview Data.</string>
+</resources>
