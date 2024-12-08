@@ -11,6 +11,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 
 import androidx.preference.PreferenceScreen;
 import com.libremobileos.support.preferences.SecureSettingMainSwitchPreference;
@@ -61,8 +62,12 @@ public class StatsFragment extends PreferenceFragmentCompat {
                         })
                         .show();
                     return false;
+                } else {
+                    // Enable the service when the preference is changed
+                    Intent intent = new Intent(context, ReportingService.class);
+                    context.startService(intent);
+                    return true;
                 }
-                return true;
             }
         });
     }
