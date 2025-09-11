@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2024 LibreMobileOS Foundation
+     Copyright (C) 2024-2025 LibreMobileOS Foundation
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -29,6 +29,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"
         tools:ignore="ProtectedPermissions" />
 
     <application
@@ -69,7 +73,8 @@
             android:name=".ReportingService"
             android:enabled="true"
             android:exported="false"
-            android:label="ReportingService" />
+            android:label="ReportingService"
+            android:foregroundServiceType="dataSync" />
 
         <service
             android:name=".StatsUploadJobService"

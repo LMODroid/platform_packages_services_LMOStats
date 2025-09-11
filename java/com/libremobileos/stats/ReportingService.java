@@ -1,12 +1,15 @@
 /*
  * SPDX-FileCopyrightText: 2015 The CyanogenMod Project
  * SPDX-FileCopyrightText: 2017-2022 The LineageOS Project
- * SPDX-FileCopyrightText: 2024 LibreMobileOS Foundation
+ * SPDX-FileCopyrightText: 2024-2025 LibreMobileOS Foundation
  * SPDX-License-Identifier: Apache-2.0
  */
 
 package com.libremobileos.stats;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.NotificationChannel;
 import android.app.IntentService;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
@@ -26,6 +29,22 @@ public class ReportingService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        // Start as foreground service to comply with Android background execution limits
+        android.app.NotificationManager nm = (android.app.NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        String channelId = "stats_foreground_channel";
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            android.app.NotificationChannel channel = new android.app.NotificationChannel(channelId, "Stats Service", android.app.NotificationManager.IMPORTANCE_LOW);
+            nm.createNotificationChannel(channel);
+        }
+
+        android.app.Notification notification = new android.app.Notification.Builder(this, channelId)
+            .setContentTitle("Stats Service Running")
+            .setContentText("Collecting anonymous statistics")
+            .setSmallIcon(android.R.drawable.ic_menu_info_details)
+            .build();
+        startForeground(1, notification);
+
         JobScheduler js = getSystemService(JobScheduler.class);
 
         Context context = getApplicationContext();
