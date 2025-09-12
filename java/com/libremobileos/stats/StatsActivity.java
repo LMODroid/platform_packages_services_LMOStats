@@ -1,12 +1,11 @@
 /*t
- * SPDX-FileCopyrightText: 2024 LibreMobileOS Foundation
+ * SPDX-FileCopyrightText: 2024-2025 LibreMobileOS Foundation
  * SPDX-License-Identifier: Apache-2.0
  */
 
 package com.libremobileos.stats;
 
 import android.os.Bundle;
-import android.content.Intent;
 import android.util.Log;
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
@@ -27,10 +26,9 @@ public class StatsActivity extends CollapsingToolbarBaseActivity {
                     .commit();
         }
 
-        // Start ReportingService
-        Intent intent = new Intent(this, ReportingService.class);
-        startService(intent);
+        // Schedule a job
+        ReportingServiceManager.scheduleJob(this);
         if (DEBUG)
-        Log.d(TAG, "ReportingService started");
+        Log.d(TAG, "Stats job scheduled");
     }
 }

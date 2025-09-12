@@ -21,7 +21,5 @@
         <permission name="android.permission.ACCESS_NETWORK_STATE"/>
         <permission name="android.permission.READ_PHONE_STATE"/>
         <permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-        <permission name="android.permission.FOREGROUND_SERVICE"/>
-        <permission name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
     </privapp-permissions>
 </permissions>

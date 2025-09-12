@@ -30,10 +30,6 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"
-        tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"
-        tools:ignore="ProtectedPermissions" />
 
     <application
         android:allowBackup="true"
@@ -68,13 +64,6 @@
                 <action android:name="com.libremobileos.stats.action.TRIGGER_REPORT_METRICS" />
             </intent-filter>
         </receiver>
-
-        <service
-            android:name=".ReportingService"
-            android:enabled="true"
-            android:exported="false"
-            android:label="ReportingService"
-            android:foregroundServiceType="dataSync" />
 
         <service
             android:name=".StatsUploadJobService"

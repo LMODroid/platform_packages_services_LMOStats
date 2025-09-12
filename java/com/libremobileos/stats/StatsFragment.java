@@ -1,7 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2012 The CyanogenMod Project
  * SPDX-FileCopyrightText: 2017-2023 The LineageOS Project
- * SPDX-FileCopyrightText: 2024 LibreMobileOS Foundation
+ * SPDX-FileCopyrightText: 2024-2025 LibreMobileOS Foundation
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -11,7 +11,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 
 import androidx.preference.PreferenceScreen;
 import com.libremobileos.support.preferences.SecureSettingMainSwitchPreference;
@@ -63,9 +62,8 @@ public class StatsFragment extends PreferenceFragmentCompat {
                         .show();
                     return false;
                 } else {
-                    // Enable the service when the preference is changed
-                    Intent intent = new Intent(context, ReportingService.class);
-                    context.startService(intent);
+                    // Schedule a job when the preference is changed
+                    ReportingServiceManager.scheduleJob(context);
                     return true;
                 }
             }
